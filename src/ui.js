@@ -58,7 +58,8 @@ function setScreen(px) {
   if (px > 0) {
     $('.app_content').css('max-width', `${px}px`)
     $('.readerTopBar').css('max-width', `${px}px`)
-    $('.readerControls').css('margin-left', `${px / 2 + 48}px`)
+    // $('.readerControls').css('margin-left', `${px / 2 + 48}px`)
+    $('.readerControls').css({"flex-direction": "row","width": "auto","top":"-13px","left":`${(px-1200)/40+25}%`,"z-index":"81"});
     setTimeout(function() {
       window.dispatchEvent(new Event('resize'))
     }, 500)
@@ -69,7 +70,7 @@ function setScreen(px) {
 function resetScreen() {
   $('.app_content').css('max-width', '')
   $('.readerTopBar').css('max-width', '')
-  $('.readerControls').css('margin-left', '')
+  $('.readerControls').css({"flex-direction": "column","width": "48px","top":"250px","left":`50%`,"z-index":"5"})
 
   setTimeout(function() {
     window.dispatchEvent(new Event('resize'))
@@ -438,7 +439,7 @@ $(document).ready(function() {
   }
 
   var _right_nav = $(`
-  <a id="webook_master" href="javascript:" title="助手" class="readerControls_item">
+  <a id="webook_master" href="javascript:" title="助手" class="readerControls_item" style="margin-top:24px">
     <span class="" style="font-weight: bold; color: ${rightColor} ;">助手</span>
   </a>
   `)
